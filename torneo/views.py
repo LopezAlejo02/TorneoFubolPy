@@ -4,10 +4,8 @@ from .models import Equipo
 # Create your views here.
 
 def inicio(request):
-    return HttpResponse("<h1>Bienvenido</h1>")
+    return render(request, 'pages/inicio.html')
 
-def index(request):
-    return render(request, 'pages/index.html')
 def equipos(request):
     equipos  = Equipo.objects.all()
     return render(request, 'equipos/indice.html', {'equipos': equipos})
