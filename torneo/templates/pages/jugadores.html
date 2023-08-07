@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de equipos {% endblock %}
+
+{% block contenido %} 
+<div class="container" >
+    <div class="row">
+        <div class="col-12">
+            <div class="card" style="background-color:transparent; color: rgba(255, 255, 255, 0.55);">
+                <div class="card-header">
+                    Lista de jugadores
+                </div>
+                <div class="card-body" >
+                    <h4 class="card-title">Jugadores</h4>
+                    
+                    <div class="table-responsive" >
+                        <table class="table " style="color: rgba(255, 255, 255, 0.55);">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Foto</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Estrellas</th>
+                                    <th scope="col">Copas América</th>
+                                    <th scope="col">Copas de Europa</th>
+                                    <th scope="col">Copas Mundiales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                {% for jugador in jugadores %}
+                                <tr class="">
+                                    <td scope="row"> {{ jugador.id }} </td>
+                                    <td>
+                                        <img class="rounded-circle" src="{{ jugador.foto.url }}" style="height: 80px; width: 80px;" />
+                                    </td>
+                                    <td>{{ jugador.nombre }}</td>
+                                    <td>{{ jugador.estrellas }}</td>
+                                    <td>{{ jugador.copasAmerica }}</td>
+                                    <td>{{ jugador.copasEuro }}</td>
+                                    <td>{{ jugador.copasMundial }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

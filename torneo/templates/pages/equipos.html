@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de equipos {% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 my-4 mx-auto">
+            <select id="cboPais" class="form-control text-center"></select>
+            <br /><br />
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card" style="background-color:transparent; color: rgba(255, 255, 255, 0.55);">
+                <div class="card-header">
+                    Lista de equipos
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Equipos</h4>
+
+                    <div class="table-responsive">
+                        <table class="table " style="color: rgba(255, 255, 255, 0.55);">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Escudo</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">País</th>
+                                    <th scope="col">Estrellas</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyEquipos">
+
+                                {% for equipo in equipos %}
+                                <tr class="">
+                                    <td scope="row"> {{ equipo.id }} </td>
+                                    <td>
+                                        <img src="{{ equipo.escudo }}" height="60" />
+                                    </td>
+                                    <td>{{ equipo.nombre }}</td>
+                                    <td>{{ equipo.pais }}</td>
+                                    <td>{{ equipo.estrellas }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+                <div class="card-footer text-muted">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
