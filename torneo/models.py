@@ -29,6 +29,8 @@ class Jugador(models.Model):
         null=True, verbose_name='Numero de copas mundiales')
     foto = models.ImageField(upload_to='img/jugadores',
                              null=True, verbose_name='Foto del jugador')
+    carta = models.ImageField(upload_to='img/cartas',
+                             null=True, verbose_name='imagen de fondo de la carta del jugador')
 
     class Meta:
         db_table = 'jugadores'
@@ -40,3 +42,17 @@ class Cruce(models.Model):
     
     class Meta:
         db_table = 'cruces'
+
+class Partido(models.Model):
+    id = models.AutoField(primary_key=True)
+    jugadorLocal = models.ForeignKey(Jugador, null=False, blank=False, on_delete=models.CASCADE, related_name='jugadorLocal')
+    equipoLocal = models.ForeignKey(Equipo, null=False, blank=False, on_delete=models.CASCADE, related_name='equipoLocal')
+    golesLocal = models.IntegerField(
+        null=True, verbose_name='Numero de goles del equipo local')
+    jugadorVisitante = models.ForeignKey(Jugador, null=False, blank=False, on_delete=models.CASCADE, related_name='jugadorVisitante')
+    equipoVisitante = models.ForeignKey(Equipo, null=False, blank=False, on_delete=models.CASCADE, related_name='equipoVisitante')
+    golesVisitante = models.IntegerField(
+        null=True, verbose_name='Numero de goles del equipo local')
+    ganador = models.ForeignKey(Jugador, null=False, blank=False, on_delete=models.CASCADE, related_name='ganador')
+    class Meta:
+        db_table = 'partidos'

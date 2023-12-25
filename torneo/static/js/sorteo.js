@@ -50,6 +50,7 @@ const consultarEquipos = async (idJugador) => {
 };
 
 function post_cruce(data) {
+    
     fetch("sorteo/post", {
         method: "POST",
         body: JSON.stringify(data),
@@ -62,6 +63,13 @@ function post_cruce(data) {
 
 function enviarCruces() {
     registros.forEach(registro => {
-        hacerPeticion('sorteo/post',"POST",JSON.stringify(registro)); 
+        console.log(registro);
+        hacerPeticion('sorteo/post',"POST",JSON.stringify(registro)); //Linea comentaria para hacer pruebas, quitar comentario para que funcione correctamente el programa
     });
+    
+    const miJSON = {};
+    registros.forEach((elemento, indice) => {
+        miJSON[indice] = elemento;
+    });
+    window.location.href = `/fixture/secuencia/${JSON.stringify(miJSON)}`;
 }

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block titulo %} Pes champions league {% endblock %}
+
+{% block contenido %} 
+    {% for fix in fixtures %}
+        <div id="Partido_{{fix.partido}}" class="match-card">
+            <div class="submit-section">
+                <a id="Boton_{{fix.partido}}" type="button" class="btn btn-success d-flex justify-content-center align-items-center">Jugado</a>
+            </div>
+            <div class="player-section">
+                <div class="team-section">
+                    <span class="player-name">{{fix.jugadorLocal.nombre}}</span>
+                    <img class="team-logo" src="{{fix.equipoLocal.escudo}}" alt="Team Logo">
+                    <h2>{{fix.equipoLocal.nombre}}</h2>
+                </div>
+                <input id="{{fix.jugadorLocal.id}}" type="number" class="score-input" placeholder="Goles">
+                    <span class="player-name">Vs</span>
+                <input id="{{fix.jugadorVisitante.id}}" type="number" class="score-input" placeholder="Goles">
+                <div class="team-section">
+                    <span class="player-name">{{fix.jugadorVisitante.nombre}}</span>
+                    <img class="team-logo" src="{{fix.equipoVisitante.escudo}}" alt="Team Logo">
+                    <h2>{{fix.equipoVisitante.nombre}}</h2>
+                </div>
+            </div>
+            
+        </div>
+    {% endfor %}
+{% endblock %}

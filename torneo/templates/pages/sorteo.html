@@ -8,7 +8,7 @@
 {% block contenido %} 
   {% for jugador in jugadores %}
     <div class="container d-grid gap-3 h-75" style="flex: 1;">
-      <div class="card">
+      <div class="card" style=" background-color: transparent; border:  none; ">
         <div class="card-body">
           <div class="row h-100">
             <div class="d-flex col-4 justify-content-center">
@@ -16,22 +16,31 @@
                 <div style="display: flex; align-items: center; justify-content: center;">
                   <img id="escudo_eq_jug_{{jugador.id}}" src="" style="height: 56px;">
                 </div>
-                <p style="display: flex; align-items: center; justify-content: center;" id="nombre_eq_jug_{{jugador.id}}">
+                <p style="display: flex; align-items: center; justify-content: center; color:white" id="nombre_eq_jug_{{jugador.id}}">
                 </p>
                 <a class="btn btn-sm btn-secondary align-items-center" id="sorteo_jug_{{jugador.id}}" onclick="consultarEquipos({{jugador.id}})" style="height: auto;">sortear</a>
               </div>
             </div>
-            <div class="col-2" style="max-height: 89px; ">
-              <div class="d-flex justify-content-center">
-                <img class="rounded-circle" src="{{ jugador.foto.url }} " style="height: 89px; width: 89px;" alt="">
+            <div class="col-8" style="max-height: 89px; ">
+              <div class="player-card" style="background-image: url({{ jugador.carta.url }}); background-size: cover; background-position: center;">
+                <div class="section section-one">
+                <div class="profile-picture">
+                  <img class="rounded-circle" src="{{ jugador.foto.url }} " style="height: 89px; width: 89px;" alt="">
+                </div>
+                <div class="player-name">
+                  <h2>{{ jugador.nombre }}</h2>
+                </div>
+                </div>
+                <div class="section section-two">
+                  <i class="fa fa-star flex-fill" >{{ jugador.estrellas }}</i>
+                  <i class="fa fa-etsy flex-fill"> {{ jugador.copasEuro }}</i>
+                  <i class="fa fa-font flex-fill"> {{ jugador.copasAmerica }}</i>
+                </div>
+                <div class="section section-three">
+                  <i class="fa-solid fa-person-breastfeeding flex-fill">0</i>
+                  <i class='fas fa-baby flex-fill'>0</i>
+                </div>
               </div>
-              <p class="text-center" style="font-size: 2vw; ">{{ jugador.nombre }}</p>
-            </div>
-            <div class="d-flex col-6 align-items-end space-between">
-              <i class="fa fa-star flex-fill" >{{ jugador.estrellas }}</i>
-              <i class="fa fa-globe flex-fill"> {{ jugador.copasMundial }}</i>
-              <i class="fa fa-etsy flex-fill"> {{ jugador.copasEuro }}</i>
-              <i class="fa fa-font flex-fill"> {{ jugador.copasAmerica }}</i>
             </div>
           </div>
         </div>

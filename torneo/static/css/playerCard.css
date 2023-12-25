@@ -1,0 +1,58 @@
+html, body {
+    height: 100%;
+    background-color: #333;
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+body {
+display: flex;
+flex-direction: column;
+height: 100%;
+}
+/* settings of the player card */
+* {
+box-sizing: border-box;
+}
+
+/* Style the player card */
+.player-card {
+display: flex;
+width: 100%;
+border: 1px solid #000;
+border-radius: 20px;
+padding: 7px;
+margin: auto; /* Center the card horizontally */
+color: black;
+}
+
+/* Style the sections */
+.section {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-right: 20px;
+}
+
+/* Style the profile picture */
+.profile-picture img {
+width: 100px;
+height: 100px;
+object-fit: cover;
+border-radius: 50%;
+}
+
+/* Style the player name */
+.player-name h2 {
+margin-top: 0px;
+text-align: center;
+font-size: 1.5em; /* Add this line */
+}
+
+/* Style the statistics and family names */
+.section-two, .section-three {
+width: 100%;
+align-items: start;
+justify-items: center;
+}
+.card-body {
+padding: 0%;
+}

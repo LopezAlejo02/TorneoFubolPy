@@ -14,7 +14,7 @@ const listarEquipos = async (idJugador) => {
             bodyEquipos.innerHTML = filas;
 
         } else {
-            alert("Países no encontrados...");
+            alert("Equipos...");
         }
     } catch (error) {
         console.log(error);
@@ -25,7 +25,6 @@ const listarJugadores = async () => {
     try {
         const response = await fetch("./sorteo/jugadores");
         const data = await response.json();
-        console.log(data);
         if (data.message === "Success") {
             let opciones = ``;
             data.jugadores.forEach((jugador) => {

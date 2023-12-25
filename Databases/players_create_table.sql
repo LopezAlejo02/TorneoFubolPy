@@ -6,5 +6,6 @@ CREATE TABLE jugadores (
     copasEuro int NOT NULL,
     copasMundial int NOT NULL,
     foto varchar(225) NOT NULL,
+    carta varchar(225) NOT NULL,
     PRIMARY KEY (id)
 );
